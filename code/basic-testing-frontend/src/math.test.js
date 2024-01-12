@@ -13,11 +13,30 @@ it("should add all number values in array", () => {
 
 it("should return NaN if at least one invalid number is provided", () => {
   const numbers = ["a", 2];
-  const expectedResult = numbers.reduce(
-    (prevValue, currValue) => prevValue + currValue,
-    0
-  );
 
   const result = add(numbers);
+  expect(result).toBeNaN;
+});
+
+it("should return correct sum if adding numeric string values", () => {
+  const numbers = ["1", "2"];
+  const result = add(numbers);
+  const expectedResult = numbers.reduce(
+    (prevValue, currValue) => +prevValue + +currValue,
+    0
+  );
   expect(result).toBe(expectedResult);
+});
+
+it("should yield 0 if an empty array is provided", () => {
+  const numbers = [];
+  const result = add(numbers);
+  expect(result).toBe(0);
+});
+
+it("should throw an error if no error is passed into function", () => {
+  const resultFn = () => {
+    add();
+  };
+  expect(resultFn).toThrow();
 });
