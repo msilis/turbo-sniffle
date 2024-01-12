@@ -10,3 +10,14 @@ it("should add all number values in array", () => {
   const result = add(numbers);
   expect(result).toBe(expectedResult);
 });
+
+it("should return NaN if at least one invalid number is provided", () => {
+  const numbers = ["a", 2];
+  const expectedResult = numbers.reduce(
+    (prevValue, currValue) => prevValue + currValue,
+    0
+  );
+
+  const result = add(numbers);
+  expect(result).toBe(expectedResult);
+});
