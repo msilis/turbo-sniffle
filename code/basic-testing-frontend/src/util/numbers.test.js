@@ -15,7 +15,7 @@ it("should return NaN if a letter is passed in as an argument", () => {
   expect(result).toBe(NaN);
 });
 
-it("should throw an error if multiple values are passed in", () => {
+it("should return NaN if multiple values are passed in", () => {
   const string1 = "a";
   const string2 = "b";
 
